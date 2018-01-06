@@ -15,12 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tasks', function(){
-	$tasks = DB::table('tasks')->get();
-	return $tasks;
-});
-Route::get('/tasks/{task}', function($id){
-	// $task = DB::table('tasks')->find($id);
-	$task = App\Task::find($id);
-	return $task->title;
-});
+Route::get('/tasks', 'TaskController@index');
+Route::get('/tasks/{task}', 'TaskController@show');

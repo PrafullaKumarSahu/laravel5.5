@@ -23,8 +23,11 @@ $api->version('v1', function ($api) {
 	$api->get('hello', function(){
 		return "hello";
 	});
-	$api->get('tasks', function(){
-		$tasks = DB::table('tasks')->get();
-	    return $tasks;
-	});
+
+	//$api->get('tasks', 'TaskController@index');
+	$api->get('tasks', 'App\Http\Controllers\TaskController@index');
+	$api->get('tasks/{task}', 'App\Http\Controllers\TaskController@show');
+
+	//$api->get('tasks/{task}', 'TaskController@show');
+
 });
