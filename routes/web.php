@@ -20,7 +20,8 @@ Route::get('/tasks', function(){
 	return $tasks;
 });
 Route::get('/tasks/{task}', function($id){
-	$task = DB::table('tasks')->find($id);
+	// $task = DB::table('tasks')->find($id);
+	$task = App\Task::find($id);
 	return $task->title;
 });
 
