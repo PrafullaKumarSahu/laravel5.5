@@ -24,4 +24,3 @@ Route::get('/tasks/{task}', function($id){
 	$task = App\Task::find($id);
 	return $task->title;
 });
-
